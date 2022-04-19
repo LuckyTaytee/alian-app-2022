@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0434f513a66e5444b2493253c90158a, type: 3}
+  m_Name: KupuA
+  m_EditorClassIdentifier: 
+  itemName: Kupu A
+  description: does stuff
+  icon: {fileID: 0}
+  prefab: {fileID: 8556993705901416958, guid: 7dfdf3fd1ca395540b24fac5832a58a3, type: 3}
