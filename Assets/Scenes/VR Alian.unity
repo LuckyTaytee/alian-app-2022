@@ -387,7 +387,7 @@ PrefabInstance:
     - target: {fileID: 3890461751466487412, guid: 9041f5948798e8549a111e7220e34843,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4369873025690973880, guid: 9041f5948798e8549a111e7220e34843,
         type: 3}
@@ -479,6 +479,11 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1879032707}
+    - target: {fileID: 8909319283666908563, guid: 9041f5948798e8549a111e7220e34843,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9041f5948798e8549a111e7220e34843, type: 3}
 --- !u!1 &80248472
@@ -494,6 +499,7 @@ GameObject:
   - component: {fileID: 80248477}
   - component: {fileID: 80248476}
   - component: {fileID: 80248475}
+  - component: {fileID: 80248478}
   m_Layer: 0
   m_Name: Tripod
   m_TagString: Untagged
@@ -628,6 +634,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &80248478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80248472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446efd323aaa801449c62773632e5126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDistance: 2
+  chanceToSpawnStart: 50
+  timeToSpawn: 2
+  spawnChanceModifier: 20
+  maxButterfly: 20
+  currentButterfly: 0
+  butterfly1Rarity: 10
+  butterfly2Rarity: 30
+  butterfly3Rarity: 60
+  butterfly1Prefab: {fileID: 3706759956715539732, guid: 5fd8c3303e51fc042b01f41bd350754a,
+    type: 3}
+  butterfly2Prefab: {fileID: 5661044373448387213, guid: e388a65ffebb2bf4b9c4fa11a0e7d1f0,
+    type: 3}
+  butterfly3Prefab: {fileID: 6130903827274505769, guid: 8c32d967c2fc4d844a09f25be5ad7cf6,
+    type: 3}
+  butterfly4Prefab: {fileID: 7747808604744367561, guid: 52a38d407519851438fc4a819a556849,
+    type: 3}
+  butterfly5Prefab: {fileID: 5707173908626206866, guid: 1d3b75a58f8e0234c8a875181cebd426,
+    type: 3}
+  butterfly6Prefab: {fileID: 5054976104138151926, guid: 5226fe3d1a8a9f040974af3721a697e8,
+    type: 3}
+  spawnChance: 0
+  spawnRate: 0
+  gacha: 0
 --- !u!1001 &98588603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1857,7 +1899,7 @@ PrefabInstance:
     - target: {fileID: 3890461751466487412, guid: 9041f5948798e8549a111e7220e34843,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4369873025690973880, guid: 9041f5948798e8549a111e7220e34843,
         type: 3}
@@ -1949,6 +1991,11 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 2082458900}
+    - target: {fileID: 8909319283666908563, guid: 9041f5948798e8549a111e7220e34843,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9041f5948798e8549a111e7220e34843, type: 3}
 --- !u!4 &881572016 stripped
@@ -3849,7 +3896,7 @@ PrefabInstance:
     - target: {fileID: 3890461751466487412, guid: 9041f5948798e8549a111e7220e34843,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4369873025690973880, guid: 9041f5948798e8549a111e7220e34843,
         type: 3}
@@ -3950,6 +3997,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909319283666908563, guid: 9041f5948798e8549a111e7220e34843,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9041f5948798e8549a111e7220e34843, type: 3}
@@ -4500,7 +4552,7 @@ PrefabInstance:
     - target: {fileID: 3890461751466487412, guid: 9041f5948798e8549a111e7220e34843,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4369873025690973880, guid: 9041f5948798e8549a111e7220e34843,
         type: 3}
@@ -4592,6 +4644,11 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1830106021}
+    - target: {fileID: 8909319283666908563, guid: 9041f5948798e8549a111e7220e34843,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9041f5948798e8549a111e7220e34843, type: 3}
 --- !u!1 &1922851412

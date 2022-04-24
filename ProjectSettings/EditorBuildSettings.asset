@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/VR Penangkaran.unity
     guid: 589fff0679314e940a65cb9cefc65552
   - enabled: 1
-    path: Assets/BagasAR/Scenes/ARScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/SampleScene.unity
+    guid: 71f94d08881e66642927c11128e3f625
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2f04c8f2f8e8430459f0f5e73ed7bc07,
       type: 2}
