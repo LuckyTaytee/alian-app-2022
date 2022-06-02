@@ -18,14 +18,10 @@ public class SpawnButterfly : MonoBehaviour
     public float butterfly1Rarity;
     public float butterfly2Rarity;
     public float butterfly3Rarity;
-  
-    public GameObject butterfly1Prefab;
-    public GameObject butterfly2Prefab;
-    public GameObject butterfly3Prefab;
-    public GameObject butterfly4Prefab;
-    public GameObject butterfly5Prefab;
-    public GameObject butterfly6Prefab;
 
+    public GameObject[] commonButterfly; //kupu yang sering muncul
+    public GameObject[] uncommonButterfly; //kupu yang agak jarang muncul
+    public GameObject[] rareButterfly;// kupu yang langka
     public static SpawnButterfly instance;
     
     public float spawnChance;
@@ -102,7 +98,7 @@ public class SpawnButterfly : MonoBehaviour
         Vector3 spawnCircle = Random.onUnitSphere;
 
         //y biar tidak negatif
-        spawnCircle.y = Mathf.Abs(spawnCircle.y);
+        spawnCircle.y = (float) (Mathf.Abs(spawnCircle.y) * 0.4);
 
         //Spawn position
         Vector3 spawnPosition = transform.position + (spawnCircle * spawnDistance);
@@ -116,11 +112,8 @@ public class SpawnButterfly : MonoBehaviour
                 gacha = Random.Range(1, 101);
                 if (gacha >= (100 - butterfly1Rarity)) 
                  {
-                    GameObject[] array = new GameObject[2];
-                    array[0] = butterfly1Prefab;
-                    array[1] = butterfly2Prefab;
-                    int spawnRareRandomly = Random.Range(0, 2);
-                    GameObject butterfly = Instantiate(array[spawnRareRandomly], spawnPosition, Quaternion.identity);
+                    int spawnCommonRandomly = Random.Range(0, 8);
+                    GameObject butterfly = Instantiate(commonButterfly[spawnCommonRandomly], spawnPosition, Quaternion.identity);
                     EventTrigger eventTrigger = butterfly.AddComponent<EventTrigger>(); //add event trigger programmatically
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerDown;
@@ -135,11 +128,8 @@ public class SpawnButterfly : MonoBehaviour
                 gacha = Random.Range(1, 101);
                 if (gacha >= (100 - butterfly2Rarity))
                  {
-                    GameObject[] array = new GameObject[2];
-                    array[0] = butterfly3Prefab;
-                    array[1] = butterfly4Prefab;
-                    int spawnUncommonRandomly = Random.Range(0, 2);
-                    GameObject butterfly = Instantiate(array[spawnUncommonRandomly], spawnPosition, Quaternion.identity);
+                    int spawnUncommonRandomly = Random.Range(0, 6);
+                    GameObject butterfly = Instantiate(uncommonButterfly[spawnUncommonRandomly], spawnPosition, Quaternion.identity);
                     EventTrigger eventTrigger = butterfly.AddComponent<EventTrigger>(); //add event trigger programmatically
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerDown;
@@ -154,11 +144,8 @@ public class SpawnButterfly : MonoBehaviour
                 gacha = Random.Range(1, 101);
                 if (gacha >= (100 - butterfly3Rarity))
                  {
-                    GameObject[] array = new GameObject[2];
-                    array[0] = butterfly5Prefab;
-                    array[1] = butterfly6Prefab;
-                    int spawnCommonRandomly = Random.Range(0, 2);
-                    GameObject butterfly = Instantiate(array[spawnCommonRandomly], spawnPosition, Quaternion.identity);
+                    int spawnRareRandomly = Random.Range(0, 4);
+                    GameObject butterfly = Instantiate(rareButterfly[spawnRareRandomly], spawnPosition, Quaternion.identity);
                     EventTrigger eventTrigger = butterfly.AddComponent<EventTrigger>(); //add event trigger programmatically
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerDown;
@@ -179,51 +166,105 @@ public class SpawnButterfly : MonoBehaviour
     public void OnPointerDownDelegate(GameObject butterfly) 
     {
         ButterflyBehavior selectedButterfly = butterfly.GetComponent<ButterflyBehavior>();
-        if (selectedButterfly.tag == "Butterfly1")
+        if (selectedButterfly.tag == "acraeaTerpsicore")
         {
-            player.butterfly1 = true;
-            Debug.Log("Butterfly1 is true");
-            writeFile();
+            player.acraeaTerpsicore = true;
+          
         }
-        if (selectedButterfly.tag == "Butterfly2")
+        if (selectedButterfly.tag == "attacusAtlas")
         {
-            player.butterfly2 = true;
-            Debug.Log("Butterfly2 is true");
-            writeFile();
+            player.attacusAtlas = true;
         }
-        if (selectedButterfly.tag == "Butterfly3")
+        if (selectedButterfly.tag == "danausChrysippus")
         {
-            player.butterfly3 = true;
-            Debug.Log("Butterfly3 is true");
-            writeFile();
+            player.danausChrysippus = true;
         }
-        if (selectedButterfly.tag == "Butterfly4")
+        if (selectedButterfly.tag == "doleschalliaBisaltide")
         {
-            player.butterfly4 = true;
-            Debug.Log("Butterfly4 is true");
-            writeFile();
+            player.doleschalliaBisaltide = true;
         }
-        if (selectedButterfly.tag == "Butterfly5")
+        if (selectedButterfly.tag == "doleschalliaBisaltide")
         {
-            player.butterfly5 = true;
-            Debug.Log("Butterfly5 is true");
-            writeFile();
+            player.doleschalliaBisaltide = true;
         }
-        if (selectedButterfly.tag == "Butterfly6")
+        if (selectedButterfly.tag == "euploeaMulciber")
         {
-            player.butterfly6 = true;
-            Debug.Log("Butterfly6 is true");
-            writeFile();
+            player.euploeaMulciber = true;
+        }
+        if (selectedButterfly.tag == "euploeaMulciber")
+        {
+            player.euploeaMulciber = true;
+        }
+        if (selectedButterfly.tag == "graphiumAgamemnon")
+        {
+            player.graphiumAgamemnon = true;
+        }
+        if (selectedButterfly.tag == "graphiumDoson")
+        {
+            player.graphiumDoson = true;
+        }
+        if (selectedButterfly.tag == "graphiumSarpedon")
+        {
+            player.graphiumSarpedon = true;
+        }
+        if (selectedButterfly.tag == "hypolimnasBolina")
+        {
+            player.hypolimnasBolina = true;
+        }
+        if (selectedButterfly.tag == "hypolimnasMissipus")
+        {
+            player.hypolimnasMissipus = true;
+        }
+        if (selectedButterfly.tag == "losariaCoon")
+        {
+            player.losariaCoon = true;
+        }
+        if (selectedButterfly.tag == "pachlioptaAristolochiae")
+        {
+            player.pachlioptaAristolochiae = true;
+        }
+        if (selectedButterfly.tag == "papilioDemoleus")
+        {
+            player.papilioDemoleus = true;
+        }
+        if (selectedButterfly.tag == "papilioHelenus")
+        {
+            player.papilioHelenus = true;
+        }
+        if (selectedButterfly.tag == "papilioMemnon")
+        {
+            player.papilioMemnon = true;
+        }
+        if (selectedButterfly.tag == "papilioMemnon")
+        {
+            player.papilioMemnon = true;
+        }
+        if (selectedButterfly.tag == "parthenosSylvia")
+        {
+            player.parthenosSylvia = true;
+        }
+        if (selectedButterfly.tag == "politesPeckius")
+        {
+            player.politesPeckius = true;
+        }
+        if (selectedButterfly.tag == "troidesHelena")
+        {
+            player.troidesHelena = true;
         }
 
+
+        Debug.Log(selectedButterfly.tag);
+        writeFile();
         Destroy(butterfly);
         currentButterfly -= 1;
     }
 
     public Vector3 generateSpawnCircle(){
-        Vector3 random = Random.onUnitSphere * spawnDistance;
-        random.y = Mathf.Abs(random.y); ;
-        return random; 
+        Vector3 spawnCircle = Random.insideUnitSphere;
+        //y biar tidak negatif
+        spawnCircle.y = (float)(Mathf.Abs(spawnCircle.y) * 0.4);
+        spawnCircle *= spawnDistance;
+        return spawnCircle; 
     }
 
     public void writeFile()

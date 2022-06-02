@@ -6,11 +6,22 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public bool butterfly1 = false;
-    public bool butterfly2 = false;
-    public bool butterfly3 = false;
-    public bool butterfly4 = false;
-    public bool butterfly5 = false;
-    public bool butterfly6 = false ;
-
+    public bool parthenosSylvia = false;
+    public bool graphiumAgamemnon = false;
+    public bool euploeaMulciber = false;
+    public bool hypolimnasBolina = false;
+    public bool hypolimnasMissipus = false;
+    public bool papilioDemoleus = false;
+    public bool politesPeckius = false;
+    public bool danausChrysippus = false;
+    public bool pachlioptaAristolochiae = false;
+    public bool graphiumSarpedon = false;
+    public bool graphiumDoson = false;
+    public bool acraeaTerpsicore = false;
+    public bool doleschalliaBisaltide = false;
+    public bool papilioMemnon = false;
+    public bool troidesHelena = false;
+    public bool losariaCoon = false;
+    public bool papilioHelenus = false;
+    public bool attacusAtlas = false;
 }

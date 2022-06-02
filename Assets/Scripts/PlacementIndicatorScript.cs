@@ -24,7 +24,7 @@ public class PlacementIndicatorScript : MonoBehaviour
         //list hits yang dilakukan oleh raycast, hits tersebut diurutkan terdekat terjauh berdasarkan indeks
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
         //melakukan raycast, raycast(touch position, hits, trackable types)
-        rayManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.Planes);
+        rayManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.PlaneEstimated);
         //kenapa screen width dan height dibagi dua, karena kita ingin tengah tengah screennya di hit, terus trackable type plane, berarti kita ingin melakukan tracking terhadap ar plane
         //if hit an AR Plane, update position and rotation
         if (hits.Count > 0)

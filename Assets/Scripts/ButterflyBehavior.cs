@@ -10,6 +10,8 @@ public class ButterflyBehavior : MonoBehaviour
     public float butterflySpeed;
     public Vector3 lastPosition;
     public Vector3 nextPosition;
+    public Quaternion lastRotation;
+    public Quaternion nextRotation;
     public float butterflyDespawnTime;
     private float startTime;
     private float timeStopped;
@@ -28,19 +30,26 @@ public class ButterflyBehavior : MonoBehaviour
         VRCamera = SpawnButterfly.instance;
         lastPosition = transform.position;
         nextPosition = VRCamera.generateSpawnCircle() + VRCamera.transform.position;
+        lastRotation = transform.rotation;
+        nextRotation = Quaternion.LookRotation(nextPosition-lastPosition).normalized; //setting awal rotasi
+        nextRotation *= Quaternion.Euler(30, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.Slerp(transform.rotation, nextRotation, (float)(Time.deltaTime * (butterflySpeed / 5)));
+
         if (!stop) 
         {
-            transform.position = Vector3.MoveTowards(transform.position, nextPosition, butterflySpeed / 1000);
+            transform.position = Vector3.MoveTowards(transform.position, nextPosition, butterflySpeed / 1000); //menggerakan kupu ke posisi selanjutnya
+           
         }
        
             
         if (transform.position == nextPosition) {
-         lastPosition = transform.position;
+            lastPosition = transform.position;
+            lastRotation = transform.rotation;
             int random = Random.Range(0, 2);
             if (random == 0)
             {
@@ -50,6 +59,8 @@ public class ButterflyBehavior : MonoBehaviour
             else 
             {
                 nextPosition = VRCamera.generateSpawnCircle()+VRCamera.transform.position;
+                nextRotation = Quaternion.LookRotation(nextPosition-lastPosition).normalized;
+                nextRotation *= Quaternion.Euler(30, 0, 0);// add 90 angle
             }
            
         }

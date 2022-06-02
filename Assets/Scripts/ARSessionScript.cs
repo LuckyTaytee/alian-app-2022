@@ -120,35 +120,10 @@ public class ARSessionScript : MonoBehaviour
     {
 
         UnityEngine.UI.Button button;
-        if (player.butterfly1)
+        if (player.acraeaTerpsicore)
         {
-            button = collectionCanvas.transform.Find("SelectFirstModel").GetComponent<UnityEngine.UI.Button>();
-            button.interactable = true;
-        }
-        if (player.butterfly2)
-        {
-            button = collectionCanvas.transform.Find("SelectSecondModel").GetComponent<UnityEngine.UI.Button>();
-            button.interactable = true;
-        }
-        if (player.butterfly3)
-        {
-            button = collectionCanvas.transform.Find("SelectThirdModel").GetComponent<UnityEngine.UI.Button>();
-            button.interactable = true;
-        }
-        if (player.butterfly4)
-        {
-            button = collectionCanvas.transform.Find("SelectFourthModel").GetComponent<UnityEngine.UI.Button>();
-            button.interactable = true;
-        }
-        if (player.butterfly5)
-        {
-            button = collectionCanvas.transform.Find("SelectFifthModel").GetComponent<UnityEngine.UI.Button>();
-            button.interactable = true;
-        }
-        if (player.butterfly6)
-        {
-            button = collectionCanvas.transform.Find("SelectSixthModel").GetComponent<UnityEngine.UI.Button>();
-            button.interactable = true;
+           // button = collectionCanvas.transform.Find("SelectFirstModel").GetComponent<UnityEngine.UI.Button>();
+          //  button.interactable = true;
         }
     }
 }
