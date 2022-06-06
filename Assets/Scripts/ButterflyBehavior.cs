@@ -16,7 +16,6 @@ public class ButterflyBehavior : MonoBehaviour
     private float startTime;
     private float timeStopped;
     private bool stop = false;
-    private GameObject parentCanvas;
         private void Awake()
     {
         instance = this;
@@ -25,7 +24,6 @@ public class ButterflyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        parentCanvas = GameObject.Find("Canvas");
         startTime = Time.time;
         VRCamera = SpawnButterfly.instance;
         lastPosition = transform.position;
@@ -33,6 +31,8 @@ public class ButterflyBehavior : MonoBehaviour
         lastRotation = transform.rotation;
         nextRotation = Quaternion.LookRotation(nextPosition-lastPosition).normalized; //setting awal rotasi
         nextRotation *= Quaternion.Euler(30, 0, 0);
+        Animator animator = gameObject.GetComponent<Animator>();
+        animator.speed = 1 + (butterflySpeed - 5)/4;
     }
 
     // Update is called once per frame
@@ -79,14 +79,6 @@ public class ButterflyBehavior : MonoBehaviour
         }
         
         
-    }
-
-    public void ActivateButton() 
-    {
-      
-
-        
-
     }
 
 

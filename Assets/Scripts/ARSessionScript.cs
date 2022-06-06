@@ -49,7 +49,6 @@ public class ARSessionScript : MonoBehaviour
                     if (selectedButterfly != null)
                     {
                         Debug.Log("Butterfly is hit");
-                        selectedButterfly.ActivateButton(); 
                         Destroy(selectedButterfly.gameObject);
                     }
                 }

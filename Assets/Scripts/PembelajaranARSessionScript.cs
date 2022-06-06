@@ -52,7 +52,6 @@ public class PembelajaranARSessionScript : MonoBehaviour
                     if (selectedButterfly != null)
                     {
                         Debug.Log("Butterfly is hit");
-                        selectedButterfly.ActivateButton(); 
                         Destroy(selectedButterfly.gameObject);
                     }
                 }

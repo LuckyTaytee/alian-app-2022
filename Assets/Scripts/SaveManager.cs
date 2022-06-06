@@ -8,18 +8,20 @@ public class SaveManager : MonoBehaviour
     public string saveFile;
     public static SaveManager instance;
     public GameObject butterflyCanvas;
-    public Button button;
-    public Image picture;
+    private Button button;
+    private Image picture;
 
 
     private void Awake()
     {
+        //mengakses path untuk savefile data
         saveFile = Application.persistentDataPath + "/gamedata.json";
         instance = this;
     }
 
     private void Start()
     {
+        //apabila saveFile ada maka player yang merupakan objek dari kelas PlayerData akan diread dari file, readFile() adalah metode untuk membaca file json
         if (File.Exists(saveFile))
         {
             player = ReadFile();
@@ -57,8 +59,8 @@ public class SaveManager : MonoBehaviour
         }
         if (player.hypolimnasBolina)
         {
-            button = butterflyCanvas.transform.Find("Scroll Area").Find("Content").Find("Row 2").Find("Hypolimnas Bolina").Find("Button").GetComponent<Button>();
-            picture = butterflyCanvas.transform.Find("Scroll Area").Find("Content").Find("Row 2").Find("Hypolimnas Bolina").Find("Gambar").GetComponent<Image>();
+            button = butterflyCanvas.transform.Find("Scroll Area").Find("Content").Find("Row 1").Find("Hypolimnas Bolina").Find("Button").GetComponent<Button>();
+            picture = butterflyCanvas.transform.Find("Scroll Area").Find("Content").Find("Row 1").Find("Hypolimnas Bolina").Find("Gambar").GetComponent<Image>();
             picture.color = new Color(255, 255, 255, 100);
             button.interactable = true;
         }
@@ -167,11 +169,10 @@ public class SaveManager : MonoBehaviour
 
     }
 
+    //metode membaca file Json
     public PlayerData ReadFile()
     {
         string fileContents = File.ReadAllText(saveFile);
-        Debug.Log(fileContents);
-
         // Deserialize the JSON data 
         //  into a pattern matching the GameData class.
         return JsonUtility.FromJson<PlayerData>(fileContents);

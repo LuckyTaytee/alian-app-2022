@@ -18,12 +18,14 @@ public class SpawnButterfly : MonoBehaviour
     public float butterfly1Rarity;
     public float butterfly2Rarity;
     public float butterfly3Rarity;
+    public bool allowSpawn = true;
 
     public GameObject[] commonButterfly; //kupu yang sering muncul
     public GameObject[] uncommonButterfly; //kupu yang agak jarang muncul
     public GameObject[] rareButterfly;// kupu yang langka
     public static SpawnButterfly instance;
     
+   
     public float spawnChance;
     private float lastSpawnTime;
     public float spawnRate; //random 1-3 butterfly dalam sekali spawn
@@ -36,9 +38,12 @@ public class SpawnButterfly : MonoBehaviour
     }
     private void Awake()
     {
-        instance = this; 
+        //set instance dari spawn butterfly supaya kita bisa mengakses script spawn butterfly tersebut
+        instance = this;
+        //melakukan pembuatan path saveFile
         saveFile = Application.persistentDataPath + "/gamedata.json";
-        Debug.Log(saveFile);
+        
+        //conditional, apabila savefile sudah ada, maka akan mengassign variabel player dengan hasil dari file yang sudah di Read
         if (File.Exists(saveFile))
         {
             player = ReadFile();
@@ -46,7 +51,7 @@ public class SpawnButterfly : MonoBehaviour
         }
         else
         {
-            //Instansiasi player data baru 
+            //Instansiasi player data baru apabila file belum ada
             player = new PlayerData();
         }
     }
@@ -61,33 +66,36 @@ public class SpawnButterfly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - lastSpawnTime >= timeToSpawn) 
+        //kondisi spawn akan muncul ketika allow saja, kalau tidak allow spawn maka tidak akan muncul
+        if (allowSpawn) 
         {
-            float randSpawnChance = Random.Range(1, 101); //generate random untuk spawn
-            spawnRate = Random.Range(1, 4); //generate random untuk jumlah butterfly yang akan di spawn
-            if (randSpawnChance >= (100 - spawnChance))
+            if (Time.time - lastSpawnTime >= timeToSpawn)
             {
-                for (int i = 0; i < spawnRate; i++)
+                float randSpawnChance = Random.Range(1, 101); //generate random untuk spawn
+                spawnRate = Random.Range(1, 4); //generate random untuk jumlah butterfly yang akan di spawn
+                if (randSpawnChance >= (100 - spawnChance))
+                {
+                    for (int i = 0; i < spawnRate; i++)
+                    {
+                        lastSpawnTime = Time.time;
+                        spawnChance = chanceToSpawnStart; //reset setiap udah spawn
+                        if (currentButterfly < maxButterfly)
+                        {
+                            Spawn();
+                        }
+
+                    }
+
+                }
+                else
                 {
                     lastSpawnTime = Time.time;
-                    spawnChance = chanceToSpawnStart; //reset setiap udah spawn
-                    if (currentButterfly < maxButterfly)
-                    {
-                        Spawn();
-                    }
-                  
+                    spawnChance += spawnChanceModifier; //menambahkan spawnchance modifier
+
                 }
 
             }
-            else 
-            {
-                lastSpawnTime = Time.time;
-                spawnChance += spawnChanceModifier; //menambahkan spawnchance modifier
-
-            }
-            
         }
-       
 
     }
 
@@ -105,25 +113,32 @@ public class SpawnButterfly : MonoBehaviour
         //spawn posisi dapet posisi shooter core + spawnCircle (yaitu random di unit sphere) + distancenya ini multiplier
 
         
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+        {
 
-             if (i == 0)
-             {
+            //pengecekan kupu-kupu umum
+            if (i == 0)
+            {
+                //gacha adalah random number diantara 1-100
                 gacha = Random.Range(1, 101);
-                if (gacha >= (100 - butterfly1Rarity)) 
-                 {
+                //apabila gacha melebihi atau samadengan 100 dikurangi kelangkaan kupu-kupu umum, maka akan memunculkan kupu-kupu
+                if (gacha >= (100 - butterfly1Rarity))
+                {
+                    //memunculkan kupu-kupu sebanyak 8 jenis (array 0 hingga array 7)
                     int spawnCommonRandomly = Random.Range(0, 8);
+                    //instansiasi kupu-kupu
                     GameObject butterfly = Instantiate(commonButterfly[spawnCommonRandomly], spawnPosition, Quaternion.identity);
                     EventTrigger eventTrigger = butterfly.AddComponent<EventTrigger>(); //add event trigger programmatically
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerDown;
                     entry.callback.AddListener((data) => { OnPointerDownDelegate(butterfly); });
-                    eventTrigger.triggers.Add( entry );
+                    eventTrigger.triggers.Add(entry);
                     currentButterfly += 1;
-                     break;
-                 }
-             }
-             else if (i == 1) 
+                    break;
+                }
+            }
+            //pengecekan kemunculan kupu-kupu jarang
+            else if (i == 1) 
              {
                 gacha = Random.Range(1, 101);
                 if (gacha >= (100 - butterfly2Rarity))
@@ -139,6 +154,7 @@ public class SpawnButterfly : MonoBehaviour
                     break;
                 }
              }
+            //pengecekan kemunculan kupu-kupu jarang
              else if (i == 2)
              {
                 gacha = Random.Range(1, 101);
@@ -156,10 +172,6 @@ public class SpawnButterfly : MonoBehaviour
                 }
              }
          } 
-
-
-
-
         //posisi di spawn position, rotation identity karena kita udah ngeset di enemy script jadi quaternion.identity
     }
 
@@ -251,8 +263,6 @@ public class SpawnButterfly : MonoBehaviour
         {
             player.troidesHelena = true;
         }
-
-
         Debug.Log(selectedButterfly.tag);
         writeFile();
         Destroy(butterfly);
