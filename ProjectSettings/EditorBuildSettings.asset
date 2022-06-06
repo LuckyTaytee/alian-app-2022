@@ -86,6 +86,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Quiz.unity
     guid: b6140aa1793fa764bb9573d192e0c9b7
+  - enabled: 1
+    path: Assets/Scenes/Informasi.unity
+    guid: 7c035e8de7e116c479b64469dcf1083b
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2f04c8f2f8e8430459f0f5e73ed7bc07,
       type: 2}
