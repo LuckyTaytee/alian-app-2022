@@ -3,6 +3,7 @@ using UnityEngine.UI ;
 
 
 public class SwitchToggle : MonoBehaviour {
+   
    [SerializeField] RectTransform uiHandleRectTransform ;
    [SerializeField] Color backgroundActiveColor ;
    [SerializeField] Color handleActiveColor ;
@@ -28,14 +29,24 @@ public class SwitchToggle : MonoBehaviour {
 
       toggle.onValueChanged.AddListener (OnSwitch) ;
 
-      if (toggle.isOn)
-         OnSwitch (true) ;
+      if (PlayerPrefs.GetInt("ToggleSelected") == 0)
+      {
+         Debug.Log("Left Side");
+         OnSwitch(false);
+         toggle.isOn = false;
+      }
+      else if (PlayerPrefs.GetInt("ToggleSelected") == 1)
+      {
+         Debug.Log("Right Side");
+         OnSwitch(true);
+         toggle.isOn = true;
+      } 
+
    }
 
-    void OnSwitch(bool on)
+    public void OnSwitch(bool on)
     {
-        uiHandleRectTransform.anchoredPosition = on ? handlePosition * -1 : handlePosition;
-
+         uiHandleRectTransform.anchoredPosition = on ? handlePosition * -1 : handlePosition;
     }
    void OnDestroy ( ) {
       toggle.onValueChanged.RemoveListener (OnSwitch) ;

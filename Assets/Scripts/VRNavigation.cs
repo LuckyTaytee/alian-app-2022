@@ -20,6 +20,11 @@ public class VRNavigation : MonoBehaviour
             StartCoroutine(LoadDevice("None"));
     }
 
+    public void ExitButton()
+    {
+        StartCoroutine(LoadDevice("None"));
+    }
+
     IEnumerator LoadDevice(string newDevice)
     {
         if (newDevice != "None")
@@ -31,7 +36,6 @@ public class VRNavigation : MonoBehaviour
 
         if (newDevice == "None")
         {
-            Debug.Log("newDevice == None");
             yield return new WaitForEndOfFrame();
         }
         else
