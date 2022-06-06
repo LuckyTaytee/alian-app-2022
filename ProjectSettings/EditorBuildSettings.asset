@@ -21,8 +21,71 @@ EditorBuildSettings:
     path: Assets/Scenes/VR Penangkaran.unity
     guid: 589fff0679314e940a65cb9cefc65552
   - enabled: 1
-    path: Assets/BagasAR/Scenes/ARScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Koleksi AR Scene.unity
+    guid: 71f94d08881e66642927c11128e3f625
+  - enabled: 1
+    path: Assets/Scenes/Pembelajaran AR.unity
+    guid: c83ffaefe24136b419d53b6665005dcf
+  - enabled: 1
+    path: Assets/Scenes/Buku Koleksi.unity
+    guid: 60ec225ac303c8d45bcaa73697e0f909
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Acraea Terpiscore.unity
+    guid: 81a340712a2790a4aae300547cfd6779
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Attacus Atlas.unity
+    guid: c3aea2f0f32986b42b4ebb98e40774ab
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Danaus Chrysippus.unity
+    guid: e2f8ceb8a9a535346a0e4eb77ad1e08f
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Doleschallia Bisaltide.unity
+    guid: f00ffb0e23dca6746bf6449ea97bf7ae
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Euploea Mulciber.unity
+    guid: 1f21919f66a566c46aae9aa087308df7
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Graphium Agamemnon.unity
+    guid: 7a6fd33d5c0a3fc43999568ffc4b8dc9
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Graphium Doson.unity
+    guid: b063121594bf5c745b97f5866f5d9e8e
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Graphium Sarpedon.unity
+    guid: dc5c3518c3277304eb4968c5ebe7904b
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Hypolimnas Bolina.unity
+    guid: 87731db2a1309e7449b8d4a1850830df
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Hypolimnas Misippus.unity
+    guid: 832c8a21a1f89864b9020df7a849851c
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Losaria Coon.unity
+    guid: 55b8c66e869b4424ab14b8ab9ec808bb
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Pachliopta Aristolochiae.unity
+    guid: fdc736555ba8cf34fa9ea5c2bbb4dd00
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Papilio Demoleus.unity
+    guid: fbb520cdfdca92242afb23e507b24c84
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Papilio Helenus.unity
+    guid: f3b53405a5e1d2a4e84553e69c5bd923
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Papilio Memnon.unity
+    guid: d3a184f672f5f7743b58dbfca7a9efd2
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Parthenos Sylvia.unity
+    guid: f274539e661238d418af57e81db9b5a0
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Polites Peckius.unity
+    guid: 5252a9b2a1918c04381df9b8a914e93d
+  - enabled: 1
+    path: Assets/Scenes/Informasi Kupu-Kupu/I.Troides Helena.unity
+    guid: d9042f2d54d3fb74da6e455e4f22646c
+  - enabled: 1
+    path: Assets/Scenes/Quiz.unity
+    guid: b6140aa1793fa764bb9573d192e0c9b7
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2f04c8f2f8e8430459f0f5e73ed7bc07,
       type: 2}

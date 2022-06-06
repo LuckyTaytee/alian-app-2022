@@ -4,7 +4,24 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Collectable
+  - danausChrysippus
+  - euploeaMulciber
+  - graphiumAgamemnon
+  - hypolimnasBolina
+  - hypolimnasMissipus
+  - papilioDemoleus
+  - parthenosSylvia
+  - politesPeckius
+  - acraeaTerpsicore
+  - doleschalliaBisaltide
+  - graphiumDoson
+  - graphiumSarpedon
+  - pachlioptaAristolochiae
+  - papilioMemnon
+  - attacusAtlas
+  - losariaCoon
+  - papilioHelenus
+  - troidesHelena
   layers:
   - Default
   - TransparentFX

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SphereChanger : MonoBehaviour {
-
-
-
+    //id dimana tempat dia berada
+    public int currentID = 1;
+    public bool currentSpawnableState = true;
+    public float currentMaxButterfly = 3;
     //This object should be called 'Fader' and placed over the camera
     GameObject m_Fader;
 
@@ -26,15 +27,20 @@ public class SphereChanger : MonoBehaviour {
     }
 
 
-    public void ChangeSphere(Transform nextSphere)
+    public void ChangeSphere(GameObject nextSphere)
     {
         if(changing != true)
         //Start the fading process
         StartCoroutine(FadeCamera(nextSphere));
+        currentID = nextSphere.GetComponent<SphereScript>().ID;
+        currentSpawnableState = nextSphere.GetComponent<SphereScript>().spawnable;
+        currentMaxButterfly = nextSphere.GetComponent<SphereScript>().maxButterfly;
+        gameObject.GetComponent<SpawnButterfly>().allowSpawn = currentSpawnableState;
+        gameObject.GetComponent<SpawnButterfly>().maxButterfly = currentMaxButterfly;
     }
 
 
-    IEnumerator FadeCamera(Transform nextSphere)
+    IEnumerator FadeCamera(GameObject nextSphere)
     {
         changing = true;
         Debug.Log("Changing");
@@ -46,7 +52,7 @@ public class SphereChanger : MonoBehaviour {
             yield return StartCoroutine(FadeIn(0.75f, m_Fader.GetComponent<Renderer>().material));
 
             //Change the camera position
-            Camera.main.transform.parent.position = nextSphere.position;
+            Camera.main.transform.parent.position = nextSphere.transform.position;
 
             //Fade the Quad object out 
             yield return StartCoroutine(FadeOut(0.75f, m_Fader.GetComponent<Renderer>().material));
@@ -54,7 +60,7 @@ public class SphereChanger : MonoBehaviour {
         else
         {
             //No fader, so just swap the camera position
-            Camera.main.transform.parent.position = nextSphere.position;
+            Camera.main.transform.parent.position = nextSphere.transform.position;
         }
 
         changing = false;
