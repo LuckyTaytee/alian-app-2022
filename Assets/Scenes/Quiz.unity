@@ -1322,7 +1322,7 @@ RectTransform:
   m_GameObject: {fileID: 1460202850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.42306, y: 0.42306, z: 0.42306}
   m_Children: []
   m_Father: {fileID: 1774964905}
   m_RootOrder: 0
@@ -1330,7 +1330,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1, y: -1}
-  m_SizeDelta: {x: 800, y: 452}
+  m_SizeDelta: {x: 2400, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1460202852
 MonoBehaviour:
@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a736cb7ff62b3748aebc8a0de64dab1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 163c585571ac0664d965931860c92b27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1932,6 +1932,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7f7166a9d395e41b956f5f0b246ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+    selectedButterfly: 
+    parthenosSylvia: 0
+    graphiumAgamemnon: 0
+    euploeaMulciber: 0
+    hypolimnasBolina: 0
+    hypolimnasMissipus: 0
+    papilioDemoleus: 0
+    politesPeckius: 0
+    danausChrysippus: 0
+    pachlioptaAristolochiae: 0
+    graphiumSarpedon: 0
+    graphiumDoson: 0
+    acraeaTerpsicore: 0
+    doleschalliaBisaltide: 0
+    papilioMemnon: 0
+    troidesHelena: 0
+    losariaCoon: 0
+    papilioHelenus: 0
+    attacusAtlas: 0
+  saveFile: 
+  selectedButterflyPath: 
 --- !u!1 &1741255002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,7 +2159,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.45
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
