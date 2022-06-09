@@ -27,12 +27,16 @@ public class ButterflyBehavior : MonoBehaviour
         startTime = Time.time;
         VRCamera = SpawnButterfly.instance;
         lastPosition = transform.position;
-        nextPosition = VRCamera.generateSpawnCircle() + VRCamera.transform.position;
         lastRotation = transform.rotation;
-        nextRotation = Quaternion.LookRotation(nextPosition-lastPosition).normalized; //setting awal rotasi
-        nextRotation *= Quaternion.Euler(30, 0, 0);
+        if (VRCamera != null)
+        {
+            nextPosition = VRCamera.generateSpawnCircle() + VRCamera.transform.position;
+            nextRotation = Quaternion.LookRotation(nextPosition - lastPosition).normalized;
+            nextRotation *= Quaternion.Euler(30, 0, 0);
+        } //setting awal rotasi}
         Animator animator = gameObject.GetComponent<Animator>();
-        animator.speed = 1 + (butterflySpeed - 5)/4;
+        animator.speed = (1 + (butterflySpeed - 5) / 4);
+      
     }
 
     // Update is called once per frame
@@ -40,14 +44,14 @@ public class ButterflyBehavior : MonoBehaviour
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, nextRotation, (float)(Time.deltaTime * (butterflySpeed / 5)));
 
-        if (!stop) 
+        if (!stop & VRCamera!= null) 
         {
             transform.position = Vector3.MoveTowards(transform.position, nextPosition, butterflySpeed / 1000); //menggerakan kupu ke posisi selanjutnya
            
         }
        
             
-        if (transform.position == nextPosition) {
+        if (transform.position == nextPosition & VRCamera != null) {
             lastPosition = transform.position;
             lastRotation = transform.rotation;
             int random = Random.Range(0, 2);
@@ -71,7 +75,7 @@ public class ButterflyBehavior : MonoBehaviour
             stop = false;
        }
 
-        if (Time.time - startTime >= butterflyDespawnTime) 
+        if (Time.time - startTime >= butterflyDespawnTime && VRCamera!=null)  
         {
             Destroy(gameObject);
             SpawnButterfly.instance.currentButterfly--;

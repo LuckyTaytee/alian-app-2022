@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
+    public string selectedButterfly = "";
     public bool parthenosSylvia = false;
     public bool graphiumAgamemnon = false;
     public bool euploeaMulciber = false;

@@ -150,6 +150,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7f7166a9d395e41b956f5f0b246ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+    selectedButterfly: 
+    parthenosSylvia: 0
+    graphiumAgamemnon: 0
+    euploeaMulciber: 0
+    hypolimnasBolina: 0
+    hypolimnasMissipus: 0
+    papilioDemoleus: 0
+    politesPeckius: 0
+    danausChrysippus: 0
+    pachlioptaAristolochiae: 0
+    graphiumSarpedon: 0
+    graphiumDoson: 0
+    acraeaTerpsicore: 0
+    doleschalliaBisaltide: 0
+    papilioMemnon: 0
+    troidesHelena: 0
+    losariaCoon: 0
+    papilioHelenus: 0
+    attacusAtlas: 0
+  saveFile: 
+  selectedButterflyPath: Prefabs/Butterfly2_AcraeaTerpsicore
 --- !u!4 &46719922
 Transform:
   m_ObjectHideFlags: 0

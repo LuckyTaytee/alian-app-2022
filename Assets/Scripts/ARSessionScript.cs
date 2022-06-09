@@ -10,8 +10,11 @@ public class ARSessionScript : MonoBehaviour
     public static ARSessionScript instance;
     private PlacementIndicatorScript placementIndicator;
     private GameObject objectToSpawn;
+    private GameObject spawnedObject;
     public GameObject collectionButton;
     public GameObject collectionCanvas;
+    private bool rotateLeftPressed = false;
+    private bool rotateRightPressed = false; 
     private void Awake()
     {
         saveFile = Application.persistentDataPath + "/gamedata.json";
@@ -28,7 +31,7 @@ public class ARSessionScript : MonoBehaviour
         {
             player = new PlayerData();
         }
-        checkUnlocked();
+        checkForModels();
         placementIndicator = FindObjectOfType<PlacementIndicatorScript>();
     }
 
@@ -42,31 +45,79 @@ public class ARSessionScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log("Something Hit");
-                if (hit.collider.tag == "Butterfly1" || hit.collider.tag == "Butterfly2" || hit.collider.tag == "Butterfly3" || hit.collider.tag == "Butterfly4" || hit.collider.tag == "Butterfly5" || hit.collider.tag == "Butterfly6")
-                {
-                    ButterflyBehavior selectedButterfly = hit.collider.GetComponent<ButterflyBehavior>();
-
-                    if (selectedButterfly != null)
-                    {
-                        Debug.Log("Butterfly is hit");
-                        Destroy(selectedButterfly.gameObject);
-                    }
-                }
 
             }
             else
             {
                 placeButterfly();
             }
+        }
+        if (rotateLeftPressed) {
+            rotateLeft();
+        }
 
-           
+        if (rotateRightPressed) {
+            rotateRight();
         }
     }
 
     public void placeButterfly() {
-        GameObject spawnedObject = Instantiate(objectToSpawn,
-            placementIndicator.transform.position, placementIndicator.transform.rotation);
+        if (spawnedObject != null) 
+        {
+            Destroy(spawnedObject);
+        }
+        Vector3 position = new Vector3(placementIndicator.transform.position.x, placementIndicator.transform.position.y + 0.25f, placementIndicator.transform.position.z);
+        spawnedObject = Instantiate(objectToSpawn, position, placementIndicator.transform.rotation);
+        
     }
+
+    public void pressButtonRotateLeft() 
+    {
+        rotateLeftPressed = true;
+    }
+    public void unpressButtonRotateLeft()
+    {
+        rotateLeftPressed = false;
+    }
+    public void rotateLeft()
+    {
+        if (spawnedObject != null)
+        {
+            spawnedObject.transform.Rotate(0, 0.25f, 0);
+        }
+    }
+    public void rotateRight()
+    {
+        if (spawnedObject != null)
+        {
+            spawnedObject.transform.Rotate(0, -0.25f, 0);
+        }
+    }
+
+    public void pressButtonRotateRight() {
+        rotateRightPressed = true;
+    }
+
+    public void unpressButtonRotateRight() {
+        rotateRightPressed = false;
+    }
+
+    public void setSpeed() {
+        if (spawnedObject != null) 
+        {
+            if (spawnedObject.GetComponent<Animator>().speed != 0)
+            {
+                spawnedObject.GetComponent<Animator>().speed = 0;
+            } 
+            else 
+            {
+                spawnedObject.GetComponent<Animator>().speed = 1 + (spawnedObject.GetComponent<ButterflyBehavior>().butterflySpeed - 5) / 4;
+            }
+          
+        }
+     
+    }
+
 
     public void goToCollection()
     {
@@ -80,31 +131,6 @@ public class ARSessionScript : MonoBehaviour
       
     }
 
-    public void selectFirst() {
-        
-        objectToSpawn = Resources.Load("Prefabs/PlaceholderButterfly1") as GameObject;
-    }
-
-    public void selectSecond() {
-        objectToSpawn = Resources.Load("Prefabs/PlaceholderButterfly2") as GameObject;
-    }
-
-    public void selectThird() {
-        objectToSpawn = Resources.Load("Prefabs/PlaceholderButterfly3") as GameObject;
-    }
-
-    public void selectFourth() {
-        objectToSpawn = Resources.Load("Prefabs/PlaceholderButterfly4") as GameObject;
-    }
-
-    public void selectFifth() {
-        objectToSpawn = Resources.Load("Prefabs/PlaceholderButterfly5") as GameObject;
-    }
-
-    public void selectSixth() {
-        objectToSpawn = Resources.Load("Prefabs/PlaceholderButterfly6") as GameObject;
-    }
-
     public PlayerData ReadFile()
     {
         string fileContents = File.ReadAllText(saveFile);
@@ -115,15 +141,10 @@ public class ARSessionScript : MonoBehaviour
         return JsonUtility.FromJson<PlayerData>(fileContents);
     }
 
-    public void checkUnlocked() 
+    public void checkForModels() 
     {
-
-        UnityEngine.UI.Button button;
-        if (player.acraeaTerpsicore)
-        {
-           // button = collectionCanvas.transform.Find("SelectFirstModel").GetComponent<UnityEngine.UI.Button>();
-          //  button.interactable = true;
-        }
+        objectToSpawn = Resources.Load(player.selectedButterfly) as GameObject;
+        Debug.Log(player.selectedButterfly);
     }
 }
 

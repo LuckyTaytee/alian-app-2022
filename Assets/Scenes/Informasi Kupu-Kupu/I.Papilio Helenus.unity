@@ -202,7 +202,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 314922767}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1053205649}
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Koleksi AR Scene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &314922767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,6 +652,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7f7166a9d395e41b956f5f0b246ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+    selectedButterfly: 
+    parthenosSylvia: 0
+    graphiumAgamemnon: 0
+    euploeaMulciber: 0
+    hypolimnasBolina: 0
+    hypolimnasMissipus: 0
+    papilioDemoleus: 0
+    politesPeckius: 0
+    danausChrysippus: 0
+    pachlioptaAristolochiae: 0
+    graphiumSarpedon: 0
+    graphiumDoson: 0
+    acraeaTerpsicore: 0
+    doleschalliaBisaltide: 0
+    papilioMemnon: 0
+    troidesHelena: 0
+    losariaCoon: 0
+    papilioHelenus: 0
+    attacusAtlas: 0
+  saveFile: 
+  selectedButterflyPath: Prefabs/Butterfly3_PapilioHelenus
 --- !u!4 &1053205650
 Transform:
   m_ObjectHideFlags: 0
