@@ -639,7 +639,7 @@ MonoBehaviour:
     MaximumX: 90
     smooth: 0
     smoothTime: 5
-    lockCursor: 1
+    lockCursor: 0
     LookAxis: {x: 0, y: 0}
   advancedSettings:
     groundCheckDistance: 0.01
@@ -690,6 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player:
+    selectedButterfly: 
     parthenosSylvia: 0
     graphiumAgamemnon: 0
     euploeaMulciber: 0

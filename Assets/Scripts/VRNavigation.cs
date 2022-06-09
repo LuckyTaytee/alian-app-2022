@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class VRNavigation : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class VRNavigation : MonoBehaviour
 
     public void ExitButton()
     {
+        //GameObject.Find("Tripod").GetComponent<RigidbodyFirstPersonController>().enabled = false;
         StartCoroutine(LoadDevice("None"));
     }
 

@@ -232,7 +232,11 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
+<<<<<<< HEAD
   m_MatchWidthOrHeight: 1
+=======
+  m_MatchWidthOrHeight: 0.45
+>>>>>>> 5761526a1692dcfe821c541e37d3983e82067860
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

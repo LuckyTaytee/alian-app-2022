@@ -233,7 +233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9022c7c69ea1bda4c9b07086c35a4868, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba5b58e8e56d017488a0aa0f6b6634f5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -426,15 +426,20 @@ RectTransform:
   m_GameObject: {fileID: 86826240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.495, y: 0.495, z: 0.495}
   m_Children: []
   m_Father: {fileID: 1035918965}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -0.7, y: 2.2}
   m_SizeDelta: {x: 925.4553, y: 522.88226}
+=======
+  m_AnchoredPosition: {x: -6.9999, y: -0.70003}
+  m_SizeDelta: {x: 2400, y: 1080}
+>>>>>>> 5761526a1692dcfe821c541e37d3983e82067860
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &86826242
 MonoBehaviour:
@@ -455,7 +460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9a51845220c079f4483b7688c0e96619, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 288ff9af2736ded4cad576cfb95eaf7a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -837,7 +842,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1035918966}
+        - m_Target: {fileID: 831975213}
           m_MethodName: ToggleVRMode
           m_Mode: 1
           m_Arguments:
@@ -996,7 +1001,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0460575c3037f884d852e4854cf0314d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9728a69d14e9574419811567473b736d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1832,7 +1837,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0.745
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1897,7 +1902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a88ae6d4c41434e8136ab7b6ec6937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preferredDevice: None
 --- !u!1 &1073076869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,7 +2071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1161774699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2314,7 +2318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 792a84040cc3c844798a170a0e397fb6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c398cec77fe8d2145a845ca27023ac3c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2518,7 +2522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: afe5884c6a07a64478685cd66836633c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87cbd61617e412044b1904d04f50461e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3042,7 +3046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff8ca24e10e6bdd448d1930352d72a47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0855dc9a0b0a7aa4e9637ecb23a85e10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
