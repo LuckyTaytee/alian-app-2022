@@ -49,7 +49,7 @@ public class ARSessionScript : MonoBehaviour
             }
             else
             {
-                placeButterfly();
+             //   placeButterfly();
             }
         }
         if (rotateLeftPressed) {
@@ -58,6 +58,11 @@ public class ARSessionScript : MonoBehaviour
 
         if (rotateRightPressed) {
             rotateRight();
+        }
+        Vector3 position = new Vector3(placementIndicator.transform.position.x, placementIndicator.transform.position.y + 0.25f, placementIndicator.transform.position.z);
+        if (spawnedObject != null) {
+            spawnedObject.transform.rotation = placementIndicator.transform.rotation;
+            spawnedObject.transform.position = position;
         }
     }
 
@@ -83,14 +88,14 @@ public class ARSessionScript : MonoBehaviour
     {
         if (spawnedObject != null)
         {
-            spawnedObject.transform.Rotate(0, 0.25f, 0);
+            spawnedObject.transform.Rotate(0, 1f, 0);
         }
     }
     public void rotateRight()
     {
         if (spawnedObject != null)
         {
-            spawnedObject.transform.Rotate(0, -0.25f, 0);
+            spawnedObject.transform.Rotate(0, -1f, 0);
         }
     }
 
