@@ -60,6 +60,6 @@ public class MainMenu : MonoBehaviour
             Debug.Log("Device = Cardboard");
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -53,9 +53,9 @@ public class VRNavigation : MonoBehaviour
             XRSettings.enabled = true;
         }
 
-        if (newDevice == "None")
+        /*if (newDevice == "None")
         {
             SceneManager.LoadScene(1);
-        }
+        }*/
     }
 }
