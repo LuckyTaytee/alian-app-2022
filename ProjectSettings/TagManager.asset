@@ -22,6 +22,10 @@ TagManager:
   - losariaCoon
   - papilioHelenus
   - troidesHelena
+  - buttonRotate
+  - butterfly
+  - placementIndicator
+  - lifecycle1
   layers:
   - Default
   - TransparentFX

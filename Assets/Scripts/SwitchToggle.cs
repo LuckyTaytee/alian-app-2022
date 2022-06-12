@@ -29,16 +29,14 @@ public class SwitchToggle : MonoBehaviour {
 
       toggle.onValueChanged.AddListener (OnSwitch) ;
 
-      if (PlayerPrefs.GetString("PreferredDevice") == "None")
+      if (PlayerPrefs.GetInt("ToggleSelected") == 0)
       {
-         PlayerPrefs.SetString("PreferredDevice", "None");
          Debug.Log("Left Side");
          OnSwitch(false);
          toggle.isOn = false;
       }
-      else if (PlayerPrefs.GetString("PreferredDevice") == "Cardboard")
+      else if (PlayerPrefs.GetInt("ToggleSelected") == 1)
       {
-         PlayerPrefs.SetString("PreferredDevice", "Cardboard");
          Debug.Log("Right Side");
          OnSwitch(true);
          toggle.isOn = true;
@@ -46,29 +44,10 @@ public class SwitchToggle : MonoBehaviour {
 
    }
 
-   public void OnSwitch(bool on)
-   {
-      uiHandleRectTransform.anchoredPosition = on ? handlePosition * -1 : handlePosition;
-   }
-
-   public void ToggleVRMode ()
-   {
-      if (PlayerPrefs.GetString("PreferredDevice") == "None")
-      {
-         PlayerPrefs.SetString("PreferredDevice", "Cardboard");
-         OnSwitch(true);
-         toggle.isOn = true;
-         Debug.Log("device : cardboard");
-      }
-      else
-      {
-         PlayerPrefs.SetString("PreferredDevice", "None");
-         OnSwitch(false);
-         toggle.isOn = false;
-         Debug.Log("device : none");
-      }
-   }
-
+    public void OnSwitch(bool on)
+    {
+         uiHandleRectTransform.anchoredPosition = on ? handlePosition * -1 : handlePosition;
+    }
    void OnDestroy ( ) {
       toggle.onValueChanged.RemoveListener (OnSwitch) ;
    }

@@ -6,29 +6,47 @@ using UnityEngine.XR;
 
 public class MainMenu : MonoBehaviour
 {
+    public string preferredDevice = "None";
+
     void Awake()
     {
-        if (!PlayerPrefs.HasKey("PreferredDevice"))
+        if (PlayerPrefs.GetInt("ToggleSelected") == 0)
         {
-            PlayerPrefs.SetString("PreferredDevice", "None");
-            Debug.Log("new playerprefs created");
+            preferredDevice = "None";
+            Debug.Log("ToggleSelected = 0 + device : none");
+        }
+        else if (PlayerPrefs.GetInt("ToggleSelected") == 1)
+        {
+            preferredDevice = "cardboard";
+            Debug.Log("ToggleSelected = 1 + device : cardboard");
+        } 
+        else
+        {
+            PlayerPrefs.SetInt("ToggleSelected", 0);
+            preferredDevice = "None";
+            Debug.Log("ToggleSelected = 0 + device : none");
+        }
+    }
+    
+    public void ToggleVRMode ()
+    {
+        if (PlayerPrefs.GetInt("ToggleSelected") == 0)
+        {
+            PlayerPrefs.SetInt("ToggleSelected", 1);
+            preferredDevice = "cardboard";
+            Debug.Log("ToggleSelected = 1 + device : cardboard");
         }
         else
         {
-            if (PlayerPrefs.GetString("PreferredDevice") == "None")
-            {
-                Debug.Log("device : none");
-            }
-            else
-            {
-                Debug.Log("device : cardboard");
-            }
+            PlayerPrefs.SetInt("ToggleSelected", 0);
+            preferredDevice = "None";
+            Debug.Log("ToggleSelected = 0 + device : none");
         }
     }
 
     public void VRMode ()
     {
-        StartCoroutine(LoadDevice(PlayerPrefs.GetString("PreferredDevice")));
+        StartCoroutine(LoadDevice(preferredDevice));
     }
 
     IEnumerator LoadDevice(string newDevice)
@@ -57,9 +75,15 @@ public class MainMenu : MonoBehaviour
         else
         {
             XRSettings.enabled = true;
-            Debug.Log("Device = Cardboard");
+            Debug.Log("Device = cardboard");
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+
+    public void QuitGame ()
+    {
+        Application.Quit();
     }
 }

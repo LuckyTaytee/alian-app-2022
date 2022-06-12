@@ -12,6 +12,7 @@ public class ARSessionScript : MonoBehaviour
     private GameObject objectToSpawn;
     private GameObject spawnedObject;
     public GameObject collectionButton;
+    public GameObject rotateCanvas;
     public GameObject collectionCanvas;
     private bool rotateLeftPressed = false;
     private bool rotateRightPressed = false; 
@@ -44,13 +45,47 @@ public class ARSessionScript : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("Something Hit");
+                if (hit.transform.tag == "butterfly")
+                {
+                    setSpeed();
+                }
+
+                if (hit.transform.tag == "placementIndicator") 
+                {
+                    placeButterfly();
+                }
+            }
+            else if (!rotateLeftPressed&&!rotateRightPressed)
+            {
+               
 
             }
-            else
+
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
             {
-             //   placeButterfly();
+                Debug.Log(hit.transform.tag);
+                if (hit.transform.tag == "butterfly")
+                {
+                    setSpeed();
+                }
+
+                if (hit.transform.tag == "placementIndicator")
+                {
+                    placeButterfly();
+                }
             }
+            else if (!rotateLeftPressed && !rotateRightPressed)
+            {
+
+
+            }
+
         }
         if (rotateLeftPressed) {
             rotateLeft();
@@ -59,11 +94,14 @@ public class ARSessionScript : MonoBehaviour
         if (rotateRightPressed) {
             rotateRight();
         }
-        Vector3 position = new Vector3(placementIndicator.transform.position.x, placementIndicator.transform.position.y + 0.25f, placementIndicator.transform.position.z);
-        if (spawnedObject != null) {
-            spawnedObject.transform.rotation = placementIndicator.transform.rotation;
-            spawnedObject.transform.position = position;
-        }
+
+       // if (spawnedObject != null)
+       // {
+         //   spawnedObject.transform.position = new Vector3(placementIndicator.transform.position.x, placementIndicator.transform.position.y + 0.25f, placementIndicator.transform.position.z);
+       // }
+       // else {
+       //     placeButterfly();
+       // }
     }
 
     public void placeButterfly() {
@@ -73,6 +111,9 @@ public class ARSessionScript : MonoBehaviour
         }
         Vector3 position = new Vector3(placementIndicator.transform.position.x, placementIndicator.transform.position.y + 0.25f, placementIndicator.transform.position.z);
         spawnedObject = Instantiate(objectToSpawn, position, placementIndicator.transform.rotation);
+        spawnedObject.transform.tag = "butterfly";
+        rotateCanvas.SetActive(true);
+        rotateCanvas.transform.position = new Vector3(spawnedObject.transform.position.x, spawnedObject.transform.position.y + 0.25f, spawnedObject.transform.position.z);
         
     }
 
@@ -88,14 +129,14 @@ public class ARSessionScript : MonoBehaviour
     {
         if (spawnedObject != null)
         {
-            spawnedObject.transform.Rotate(0, 1f, 0);
+            spawnedObject.transform.Rotate(0, 4f, 0);
         }
     }
     public void rotateRight()
     {
         if (spawnedObject != null)
         {
-            spawnedObject.transform.Rotate(0, -1f, 0);
+            spawnedObject.transform.Rotate(0, -4f, 0);
         }
     }
 
@@ -121,19 +162,6 @@ public class ARSessionScript : MonoBehaviour
           
         }
      
-    }
-
-
-    public void goToCollection()
-    {
-        collectionButton.SetActive(false);
-        collectionCanvas.SetActive(true);
-    }
-
-    public void goBack() {
-        collectionButton.SetActive(true);
-        collectionCanvas.SetActive(false);
-      
     }
 
     public PlayerData ReadFile()
