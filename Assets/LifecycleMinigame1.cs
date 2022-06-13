@@ -22,8 +22,8 @@ public class LifecycleMinigame1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        progressBarCanvas = ProgressBar.instance.GetComponent<Canvas>();
-        progressBarCanvas.transform.position = transform.position;
+        ProgressBar.instance.minigameObject = gameObject;
+        RotateCanvasBehavior.instance.minigameObject = gameObject;
         progressBarImage = ProgressBar.instance.transform.Find("Image").Find("Image").GetComponent<Image>();
 
     }
@@ -31,7 +31,6 @@ public class LifecycleMinigame1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        progressBarCanvas.transform.LookAt(ARSessionScriptPembelajaranAR.instance.transform);
         timer += Time.deltaTime;
         if (timer >= secondsToSubstractProgress)
         {

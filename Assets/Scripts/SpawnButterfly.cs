@@ -177,6 +177,8 @@ public class SpawnButterfly : MonoBehaviour
 
     public void OnPointerDownDelegate(GameObject butterfly) 
     {
+        //script sfx
+
         ButterflyBehavior selectedButterfly = butterfly.GetComponent<ButterflyBehavior>();
         if (selectedButterfly.tag == "acraeaTerpsicore")
         {
@@ -264,6 +266,7 @@ public class SpawnButterfly : MonoBehaviour
             player.troidesHelena = true;
         }
         Debug.Log(selectedButterfly.tag);
+        //Save
         writeFile();
         Destroy(butterfly);
         currentButterfly -= 1;

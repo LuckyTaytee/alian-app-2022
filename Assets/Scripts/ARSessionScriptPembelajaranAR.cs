@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ARSessionScriptPembelajaranAR : MonoBehaviour
 {
@@ -12,14 +13,17 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
     private GameObject objectToSpawn;
     private GameObject spawnedObject;
     public GameObject collectionButton;
-    public GameObject rotateCanvas;
     private bool rotateLeftPressed = false;
-    private bool rotateRightPressed = false; 
-   
+    private bool rotateRightPressed = false;
+    private bool modelPlaced = false;
+
+    public PanelInformasiBehavior panelInformasi;
+    public GameObject canvas;
+
     private void Awake()
     {
         saveFile = Application.persistentDataPath + "/gamedata.json";
-        instance = this; 
+        instance = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -28,12 +32,13 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
         {
             player = ReadFile();
         }
-        else 
+        else
         {
             player = new PlayerData();
         }
-        LifeCyclePhase1();
+        panelInformasi = canvas.transform.Find("Panel Petunjuk").GetComponent<PanelInformasiBehavior>();
         placementIndicator = FindObjectOfType<PlacementIndicatorScript>();
+        togglePanel();
     }
 
     // Update is called once per frame
@@ -45,20 +50,27 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.tag == "butterfly")
-                {
-                    setSpeed();
-                }
-
-                if (hit.transform.tag == "placementIndicator") 
+                if (hit.transform.tag == "placementIndicator" && !modelPlaced)
                 {
                     Debug.Log("placementIndicator");
-                    placeModel();
+                    LifeCyclePhase1();
+                    modelPlaced = true;
                 }
+
+                if (hit.transform.tag == "lifecycle1")
+                {
+                    hit.transform.GetComponent<LifecycleMinigame1>().EggClicked();
+                }
+
+                if (hit.transform.tag == "leaf")
+                {
+                    LifecycleMinigame2.instance.clickLeaf(hit.transform.position);
+                }
+
             }
-            else if (!rotateLeftPressed&&!rotateRightPressed)
+            else if (!rotateLeftPressed && !rotateRightPressed)
             {
-               
+
 
             }
 
@@ -71,23 +83,25 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.transform.tag);
-                if (hit.transform.tag == "butterfly")
-                {
-                    setSpeed();
-                }
 
-                if (hit.transform.tag == "placementIndicator")
+                if (hit.transform.tag == "placementIndicator" && !modelPlaced)
                 {
                     Debug.Log("placementIndicator");
-                    placeModel();
+                    LifeCyclePhase1();
+                    modelPlaced = true;
                 }
 
-                if (hit.transform.tag == "lifecycle1") 
+                if (hit.transform.tag == "lifecycle1")
                 {
                     hit.transform.GetComponent<LifecycleMinigame1>().EggClicked();
                 }
 
-                
+                if (hit.transform.tag == "leaf")
+                {
+                    LifecycleMinigame2.instance.clickLeaf(hit.transform.position);
+                }
+
+
             }
             else if (!rotateLeftPressed && !rotateRightPressed)
             {
@@ -104,28 +118,21 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
             rotateRight();
         }
 
-       // if (spawnedObject != null)
-       // {
-         //   spawnedObject.transform.position = new Vector3(placementIndicator.transform.position.x, placementIndicator.transform.position.y + 0.25f, placementIndicator.transform.position.z);
-       // }
-       // else {
-       //     placeButterfly();
-       // }
+        // if (spawnedObject != null)
+        // {
+        //   spawnedObject.transform.position = new Vector3(placementIndicator.transform.position.x, placementIndicator.transform.position.y + 0.25f, placementIndicator.transform.position.z);
+        // }
+        // else {
+        //     placeButterfly();
+        // }
     }
 
-    public void placeModel() {
-        if (spawnedObject != null) 
-        {
-            Destroy(spawnedObject);
-        }
-        Vector3 position = new Vector3(placementIndicator.transform.position.x, placementIndicator.transform.position.y, placementIndicator.transform.position.z);
-        spawnedObject = Instantiate(objectToSpawn, position, placementIndicator.transform.rotation);
-        rotateCanvas.SetActive(true);
-        rotateCanvas.transform.position = new Vector3(spawnedObject.transform.position.x, spawnedObject.transform.position.y + 0.3f, spawnedObject.transform.position.z);
-        
+    public void ResetPlacement()
+    {
+        SceneManager.LoadScene("Pembelajaran AR");
     }
 
-    public void pressButtonRotateLeft() 
+    public void pressButtonRotateLeft()
     {
         rotateLeftPressed = true;
     }
@@ -156,21 +163,6 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
         rotateRightPressed = false;
     }
 
-    public void setSpeed() {
-        if (spawnedObject != null) 
-        {
-            if (spawnedObject.GetComponent<Animator>().speed != 0)
-            {
-                spawnedObject.GetComponent<Animator>().speed = 0;
-            } 
-            else 
-            {
-                spawnedObject.GetComponent<Animator>().speed = 1 + (spawnedObject.GetComponent<ButterflyBehavior>().butterflySpeed - 5) / 4;
-            }
-          
-        }
-     
-    }
 
     public PlayerData ReadFile()
     {
@@ -182,18 +174,56 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
         return JsonUtility.FromJson<PlayerData>(fileContents);
     }
 
-    public void LifeCyclePhase1() 
+    public void LifeCyclePhase1()
     {
         objectToSpawn = Resources.Load("Prefabs/Lifecycle1") as GameObject;
+        if (spawnedObject != null)
+        {
+            Destroy(spawnedObject);
+        }
+        Vector3 position = new Vector3(placementIndicator.transform.position.x, placementIndicator.transform.position.y, placementIndicator.transform.position.z);
+        spawnedObject = Instantiate(objectToSpawn, position, placementIndicator.transform.rotation);
+        panelInformasi = canvas.transform.Find("Panel Telur").GetComponent<PanelInformasiBehavior>();
+        togglePanel();
     }
 
-    public void LifeCyclePhase2() 
+    public void LifeCyclePhase2()
     {
         Vector3 position = spawnedObject.transform.position;
         Quaternion rotation = spawnedObject.transform.rotation;
         Destroy(spawnedObject);
         objectToSpawn = Resources.Load("Prefabs/Lifecycle2") as GameObject;
-        spawnedObject = Instantiate(objectToSpawn, position, rotation);
+        spawnedObject = Instantiate(objectToSpawn, position, Quaternion.Euler(0, Random.Range(0, 180), 0));
+        panelInformasi = canvas.transform.Find("Panel Ulat").GetComponent<PanelInformasiBehavior>();
+        togglePanel();
+
+    }
+
+    public void LifeCyclePhase3()
+    {
+        Vector3 position = spawnedObject.transform.position;
+        Quaternion rotation = spawnedObject.transform.rotation;
+        Destroy(spawnedObject);
+        objectToSpawn = Resources.Load("Prefabs/Lifecycle3") as GameObject;
+        spawnedObject = Instantiate(objectToSpawn, position, Quaternion.Euler(0, Random.Range(0, 180), 0));
+        panelInformasi = canvas.transform.Find("Panel Kepompong").GetComponent<PanelInformasiBehavior>();
+        togglePanel();
+
+    }
+
+    public void LifeCyclePhase4()
+    {
+        Vector3 position = spawnedObject.transform.position;
+        Destroy(spawnedObject);
+        objectToSpawn = Resources.Load("Prefabs/Lifecycle4") as GameObject;
+        spawnedObject = Instantiate(objectToSpawn, position, Quaternion.identity);
+        panelInformasi = canvas.transform.Find("Panel Kupu-Kupu").GetComponent<PanelInformasiBehavior>();
+        togglePanel();
+
+    }
+
+    public void togglePanel() {
+        panelInformasi.TogglePanel();
     }
 }
 

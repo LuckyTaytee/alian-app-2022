@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progress: 0
-  progressSubstraction: 0.2
+  progressSubstraction: 0.3
   progressAddition: 10
   secondsToSubstractProgress: 0.01
   timer: 0

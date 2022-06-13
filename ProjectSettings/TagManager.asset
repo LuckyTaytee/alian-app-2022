@@ -26,6 +26,8 @@ TagManager:
   - butterfly
   - placementIndicator
   - lifecycle1
+  - Butterfly6
+  - leaf
   layers:
   - Default
   - TransparentFX
