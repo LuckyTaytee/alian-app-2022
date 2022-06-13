@@ -1028,6 +1028,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 146388001}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &286941006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1814,7 @@ GameObject:
   - component: {fileID: 639284295}
   - component: {fileID: 639284294}
   m_Layer: 0
-  m_Name: VFX Music
+  m_Name: SFX Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2287,7 +2298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a88ae6d4c41434e8136ab7b6ec6937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preferredDevice: None
 --- !u!1 &1073076869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,17 +2780,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1035918966}
         m_MethodName: VRMode
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1171170396}
-        m_MethodName: FadeToLevel
-        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

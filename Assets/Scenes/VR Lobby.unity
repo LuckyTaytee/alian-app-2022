@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20684469, g: 0.24752817, b: 0.33002108, a: 1}
+  m_IndirectSpecularColor: {r: 0.2070432, g: 0.24733365, b: 0.33025262, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -384,6 +384,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3211724242021887753, guid: bf60dbb9888c64c41a353ce2fc74ae30,
         type: 3}
+      propertyPath: m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 4f8f47e973eede34baad21bafae34153,
+        type: 3}
+    - target: {fileID: 3211724242021887753, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
       propertyPath: m_Text
       value: 'Kembali ke
 
@@ -478,6 +484,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850322337758728401, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f8f47e973eede34baad21bafae34153, type: 3}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 8584423621100408662, guid: bf60dbb9888c64c41a353ce2fc74ae30,
         type: 3}
@@ -1214,10 +1245,26 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3211724242021887753, guid: bf60dbb9888c64c41a353ce2fc74ae30,
         type: 3}
+      propertyPath: m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 4f8f47e973eede34baad21bafae34153,
+        type: 3}
+    - target: {fileID: 3211724242021887753, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
       propertyPath: m_Text
       value: 'Alian
 
         Butterfly Park'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211724242021887753, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_RichText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211724242021887753, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_FontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4248804241175793875, guid: bf60dbb9888c64c41a353ce2fc74ae30,
         type: 3}
@@ -1313,6 +1360,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850322337758728401, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f8f47e973eede34baad21bafae34153, type: 3}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.28159
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.46544
       objectReference: {fileID: 0}
     - target: {fileID: 8584423621100408662, guid: bf60dbb9888c64c41a353ce2fc74ae30,
         type: 3}
@@ -2067,6 +2149,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3211724242021887753, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 4f8f47e973eede34baad21bafae34153,
+        type: 3}
     - target: {fileID: 4248804241175793875, guid: bf60dbb9888c64c41a353ce2fc74ae30,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
@@ -2161,6 +2249,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850322337758728401, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f8f47e973eede34baad21bafae34153, type: 3}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270622772232952140, guid: bf60dbb9888c64c41a353ce2fc74ae30,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 8584423621100408662, guid: bf60dbb9888c64c41a353ce2fc74ae30,
         type: 3}

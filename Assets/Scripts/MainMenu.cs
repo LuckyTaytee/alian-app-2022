@@ -6,51 +6,34 @@ using UnityEngine.XR;
 
 public class MainMenu : MonoBehaviour
 {
-    public string preferredDevice = "None";
 
     void Awake()
     {
-        if (PlayerPrefs.GetInt("ToggleSelected") == 0)
+        if (!PlayerPrefs.HasKey("PreferredDevice"))
         {
-            preferredDevice = "None";
-            Debug.Log("ToggleSelected = 0 + device : none");
-        }
-        else if (PlayerPrefs.GetInt("ToggleSelected") == 1)
-        {
-            preferredDevice = "cardboard";
-            Debug.Log("ToggleSelected = 1 + device : cardboard");
-        } 
-        else
-        {
-            PlayerPrefs.SetInt("ToggleSelected", 0);
-            preferredDevice = "None";
-            Debug.Log("ToggleSelected = 0 + device : none");
-        }
-    }
-    
-    public void ToggleVRMode ()
-    {
-        if (PlayerPrefs.GetInt("ToggleSelected") == 0)
-        {
-            PlayerPrefs.SetInt("ToggleSelected", 1);
-            preferredDevice = "cardboard";
-            Debug.Log("ToggleSelected = 1 + device : cardboard");
+            PlayerPrefs.SetString("PreferredDevice", "None");
+            Debug.Log("new playerprefs created");
         }
         else
         {
-            PlayerPrefs.SetInt("ToggleSelected", 0);
-            preferredDevice = "None";
-            Debug.Log("ToggleSelected = 0 + device : none");
+            if (PlayerPrefs.GetString("PreferredDevice") == "None")
+            {
+                Debug.Log("device : none");
+            }
+            else
+            {
+                Debug.Log("device : cardboard");
+            }
         }
     }
 
     public void VRMode ()
     {
-        StartCoroutine(LoadDevice(preferredDevice));
+        StartCoroutine(LoadDevice(PlayerPrefs.GetString("PreferredDevice")));
     }
 
     IEnumerator LoadDevice(string newDevice)
-    {
+    {       
         if (newDevice != "None")
         {
             yield return new WaitForSeconds(1);
@@ -70,20 +53,14 @@ public class MainMenu : MonoBehaviour
         if (newDevice == "None")
         {
             XRSettings.enabled = false;
-            Debug.Log("Device = None");
+            Debug.Log("STill touch screen view");
         }
         else
         {
             XRSettings.enabled = true;
-            Debug.Log("Device = cardboard");
+            Debug.Log("Switch to VR View");
         }
 
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-
-    public void QuitGame ()
-    {
-        Application.Quit();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

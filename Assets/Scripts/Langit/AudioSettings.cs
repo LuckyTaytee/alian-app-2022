@@ -21,7 +21,10 @@ public class AudioSettings : MonoBehaviour
         backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
         soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
 
-        backgroundAudio.volume = backgroundFloat;
+        if(backgroundAudio != null)
+        {
+            backgroundAudio.volume = backgroundFloat;
+        }
 
         for (int i = 0; i < soundEffectsAudio.Length; i++)
         {
