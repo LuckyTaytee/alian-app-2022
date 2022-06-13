@@ -10,9 +10,6 @@ public class AnswerScript : MonoBehaviour
     public QuizManager quizManager;
     public GameObject feed_benar, feed_salah;
     public Button button_A, button_B, button_C, button_D;
-    public AudioSource suara_benar, suara_salah;
-
-    
 
     public void Answer()
     {
@@ -25,7 +22,6 @@ public class AnswerScript : MonoBehaviour
         {
             feed_benar.SetActive (false);
             feed_benar.SetActive (true);
-            suara_benar.Play();
             Debug.Log("Correct Answer");
             Invoke("NextCorrect", 2.0f);
         }
@@ -33,7 +29,6 @@ public class AnswerScript : MonoBehaviour
         {
             feed_salah.SetActive (false);
             feed_salah.SetActive (true);
-            suara_salah.Play();
             Debug.Log("Wrong Answer");
             Invoke("NextWrong", 2.0f);
         }
