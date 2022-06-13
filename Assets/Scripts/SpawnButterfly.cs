@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class SpawnButterfly : MonoBehaviour
@@ -24,8 +25,12 @@ public class SpawnButterfly : MonoBehaviour
     public GameObject[] uncommonButterfly; //kupu yang agak jarang muncul
     public GameObject[] rareButterfly;// kupu yang langka
     public static SpawnButterfly instance;
-    
-   
+
+    public AudioSource sfxButterfly;
+    public GameObject log;
+    public Text LogTxt;
+
+
     public float spawnChance;
     private float lastSpawnTime;
     public float spawnRate; //random 1-3 butterfly dalam sekali spawn
@@ -177,96 +182,116 @@ public class SpawnButterfly : MonoBehaviour
 
     public void OnPointerDownDelegate(GameObject butterfly) 
     {
-        //script sfx
+        sfxButterfly.Play();
+
+        log.SetActive(false);
+        log.SetActive(true);
 
         ButterflyBehavior selectedButterfly = butterfly.GetComponent<ButterflyBehavior>();
+        LogTxt.text = selectedButterfly.tag;
+
         if (selectedButterfly.tag == "acraeaTerpsicore")
         {
             player.acraeaTerpsicore = true;
-          
+            LogTxt.text = "Acraea terpsicore";
+
         }
         if (selectedButterfly.tag == "attacusAtlas")
         {
             player.attacusAtlas = true;
+            LogTxt.text = "Attacus atlas";
         }
         if (selectedButterfly.tag == "danausChrysippus")
         {
             player.danausChrysippus = true;
+            LogTxt.text = "Danaus chrysippus";
         }
         if (selectedButterfly.tag == "doleschalliaBisaltide")
         {
             player.doleschalliaBisaltide = true;
+            LogTxt.text = "Doleschallia bisaltide";
         }
         if (selectedButterfly.tag == "doleschalliaBisaltide")
         {
             player.doleschalliaBisaltide = true;
+            LogTxt.text = "Doleschallia bisaltide";
         }
         if (selectedButterfly.tag == "euploeaMulciber")
         {
             player.euploeaMulciber = true;
+            LogTxt.text = "Euploea mulciber";
         }
         if (selectedButterfly.tag == "euploeaMulciber")
         {
             player.euploeaMulciber = true;
+            LogTxt.text = "Euploea mulciber";
         }
         if (selectedButterfly.tag == "graphiumAgamemnon")
         {
             player.graphiumAgamemnon = true;
+            LogTxt.text = "Graphium agamemnon";
         }
         if (selectedButterfly.tag == "graphiumDoson")
         {
             player.graphiumDoson = true;
+            LogTxt.text = "Graphium doson";
         }
         if (selectedButterfly.tag == "graphiumSarpedon")
         {
             player.graphiumSarpedon = true;
+            LogTxt.text = "Graphium sarpedon";
         }
         if (selectedButterfly.tag == "hypolimnasBolina")
         {
             player.hypolimnasBolina = true;
+            LogTxt.text = "Hypolimnas bolina";
         }
         if (selectedButterfly.tag == "hypolimnasMissipus")
         {
             player.hypolimnasMissipus = true;
+            LogTxt.text = "Hypolimnas missipus";
         }
         if (selectedButterfly.tag == "losariaCoon")
         {
             player.losariaCoon = true;
+            LogTxt.text = "Losaria coon";
         }
         if (selectedButterfly.tag == "pachlioptaAristolochiae")
         {
             player.pachlioptaAristolochiae = true;
+            LogTxt.text = "Pachliopta aristolochiae";
         }
         if (selectedButterfly.tag == "papilioDemoleus")
         {
             player.papilioDemoleus = true;
+            LogTxt.text = "Papilio demoleus";
         }
         if (selectedButterfly.tag == "papilioHelenus")
         {
             player.papilioHelenus = true;
+            LogTxt.text = "Papilio helenus";
         }
         if (selectedButterfly.tag == "papilioMemnon")
         {
             player.papilioMemnon = true;
-        }
-        if (selectedButterfly.tag == "papilioMemnon")
-        {
-            player.papilioMemnon = true;
+            LogTxt.text = "Papilio memnon";
         }
         if (selectedButterfly.tag == "parthenosSylvia")
         {
             player.parthenosSylvia = true;
+            LogTxt.text = "Parthenos sylvia";
         }
         if (selectedButterfly.tag == "politesPeckius")
         {
             player.politesPeckius = true;
+            LogTxt.text = "Polites peckius";
         }
         if (selectedButterfly.tag == "troidesHelena")
         {
             player.troidesHelena = true;
+            LogTxt.text = "Troides helena";
         }
         Debug.Log(selectedButterfly.tag);
-        //Save
         writeFile();
         Destroy(butterfly);
         currentButterfly -= 1;
