@@ -50,7 +50,8 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.tag == "placementIndicator" && !modelPlaced)
+                if( panelInformasi.gameObject.activeSelf==false){
+                     if (hit.transform.tag == "placementIndicator" && !modelPlaced)
                 {
                     Debug.Log("placementIndicator");
                     LifeCyclePhase1();
@@ -66,6 +67,8 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
                 {
                     LifecycleMinigame2.instance.clickLeaf(hit.transform.position);
                 }
+                }
+               
 
             }
             else if (!rotateLeftPressed && !rotateRightPressed)
@@ -84,7 +87,8 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
             {
                 Debug.Log(hit.transform.tag);
 
-                if (hit.transform.tag == "placementIndicator" && !modelPlaced)
+                if( panelInformasi.gameObject.activeSelf==false){
+                     if (hit.transform.tag == "placementIndicator" && !modelPlaced)
                 {
                     Debug.Log("placementIndicator");
                     LifeCyclePhase1();
@@ -99,6 +103,7 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
                 if (hit.transform.tag == "leaf")
                 {
                     LifecycleMinigame2.instance.clickLeaf(hit.transform.position);
+                }
                 }
 
 

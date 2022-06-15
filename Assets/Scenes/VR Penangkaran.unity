@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 727472567}
-  m_IndirectSpecularColor: {r: 0.42054445, g: 0.4500686, b: 0.46975666, a: 1}
+  m_IndirectSpecularColor: {r: 0.4205452, g: 0.45006853, b: 0.46975708, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -409,7 +409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &365767521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1980,12 +1980,12 @@ MonoBehaviour:
   - {fileID: 6727472040265324079, guid: 09fcddcac69c0564b82440bd16dc11aa, type: 3}
   - {fileID: 5216404631675319144, guid: d0dfc25c92d4b424380ca124aa64af71, type: 3}
   - {fileID: 3973016648188396044, guid: cc6e66ab9b7da724d9f57f63586854de, type: 3}
-  sfxButterfly: {fileID: 632320510}
-  log: {fileID: 365767520}
-  LogTxt: {fileID: 1338919431}
   spawnChance: 0
   spawnRate: 0
   gacha: 0
+  sfxButterfly: {fileID: 632320510}
+  log: {fileID: 365767520}
+  LogTxt: {fileID: 1338919431}
 --- !u!1001 &764114392
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -67,7 +67,7 @@ MonoBehaviour:
   maxLeaf: 3
   outerRadius: 1
   innerRadius: 0.25
-  movementSpeed: 0.12
+  movementSpeed: 0.18
   progress: 0
   timer: 0
   timeToSpawn: 2

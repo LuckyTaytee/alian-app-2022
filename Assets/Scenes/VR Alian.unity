@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1336186694}
-  m_IndirectSpecularColor: {r: 0.43734616, g: 0.48512995, b: 0.5654026, a: 1}
+  m_IndirectSpecularColor: {r: 0.43734673, g: 0.4851302, b: 0.5654037, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -973,12 +973,12 @@ MonoBehaviour:
   - {fileID: 6727472040265324079, guid: 09fcddcac69c0564b82440bd16dc11aa, type: 3}
   - {fileID: 5216404631675319144, guid: d0dfc25c92d4b424380ca124aa64af71, type: 3}
   - {fileID: 3973016648188396044, guid: cc6e66ab9b7da724d9f57f63586854de, type: 3}
-  sfxButterfly: {fileID: 814250970}
-  log: {fileID: 2044112006}
-  LogTxt: {fileID: 1304551293}
   spawnChance: 0
   spawnRate: 0
   gacha: 0
+  sfxButterfly: {fileID: 814250970}
+  log: {fileID: 2044112006}
+  LogTxt: {fileID: 1304551293}
 --- !u!82 &94823269 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1055479976540424168, guid: 9041f5948798e8549a111e7220e34843,
