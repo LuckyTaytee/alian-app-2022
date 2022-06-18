@@ -127,11 +127,13 @@ public class LifecycleMinigame2 : MonoBehaviour
 
         //Get the current scale of the object to be moved
         Vector3 startScaleSize = transform.localScale;
+        Vector3 startScaleCollider = transform.GetComponent<BoxCollider>().transform.localScale;
 
         while (counter < duration)
         {
             counter += Time.deltaTime;
             transform.localScale = Vector3.Lerp(startScaleSize, upScale, counter / duration);
+            transform.GetComponent<BoxCollider>().transform.localScale = Vector3.Lerp(startScaleCollider, upScale, counter / duration);
             yield return null;
         }
 
