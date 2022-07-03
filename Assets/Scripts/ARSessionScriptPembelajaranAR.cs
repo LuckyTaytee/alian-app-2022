@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class ARSessionScriptPembelajaranAR : MonoBehaviour
 {
-    public PlayerData player;
-    public string saveFile;
     public static ARSessionScriptPembelajaranAR instance;
     private PlacementIndicatorScript placementIndicator;
     private GameObject objectToSpawn;
@@ -22,20 +20,12 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
 
     private void Awake()
     {
-        saveFile = Application.persistentDataPath + "/gamedata.json";
         instance = this;
     }
     // Start is called before the first frame update
     void Start()
     {
-        if (File.Exists(saveFile))
-        {
-            player = ReadFile();
-        }
-        else
-        {
-            player = new PlayerData();
-        }
+       
         panelInformasi = canvas.transform.Find("Panel Petunjuk").GetComponent<PanelInformasiBehavior>();
         placementIndicator = FindObjectOfType<PlacementIndicatorScript>();
         togglePanel();
@@ -166,17 +156,6 @@ public class ARSessionScriptPembelajaranAR : MonoBehaviour
 
     public void unpressButtonRotateRight() {
         rotateRightPressed = false;
-    }
-
-
-    public PlayerData ReadFile()
-    {
-        string fileContents = File.ReadAllText(saveFile);
-        Debug.Log(fileContents);
-
-        // Deserialize the JSON data 
-        //  into a pattern matching the GameData class.
-        return JsonUtility.FromJson<PlayerData>(fileContents);
     }
 
     public void LifeCyclePhase1()
