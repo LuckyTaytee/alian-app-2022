@@ -315,6 +315,8 @@ MonoBehaviour:
   button_B: {fileID: 216255492}
   button_C: {fileID: 1506759163}
   button_D: {fileID: 869358060}
+  audioBenar: {fileID: 1397705281}
+  audioSalah: {fileID: 1309439528}
 --- !u!114 &216255494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,6 +963,8 @@ MonoBehaviour:
   button_B: {fileID: 0}
   button_C: {fileID: 0}
   button_D: {fileID: 0}
+  audioBenar: {fileID: 0}
+  audioSalah: {fileID: 0}
 --- !u!114 &701619638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1284,6 +1288,8 @@ MonoBehaviour:
   button_B: {fileID: 216255492}
   button_C: {fileID: 1506759163}
   button_D: {fileID: 869358060}
+  audioBenar: {fileID: 1397705281}
+  audioSalah: {fileID: 1309439528}
 --- !u!114 &869358062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2183,6 +2189,8 @@ MonoBehaviour:
   button_B: {fileID: 216255492}
   button_C: {fileID: 1506759163}
   button_D: {fileID: 869358060}
+  audioBenar: {fileID: 1397705281}
+  audioSalah: {fileID: 1309439528}
 --- !u!114 &1506759165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2893,6 +2901,8 @@ MonoBehaviour:
   button_B: {fileID: 216255492}
   button_C: {fileID: 1506759163}
   button_D: {fileID: 869358060}
+  audioBenar: {fileID: 1397705281}
+  audioSalah: {fileID: 1309439528}
 --- !u!114 &1741255006
 MonoBehaviour:
   m_ObjectHideFlags: 0

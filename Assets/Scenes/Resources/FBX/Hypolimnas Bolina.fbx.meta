@@ -11,7 +11,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hypolimnas Bolina
-    second: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+    second: {fileID: 2100000, guid: d2650d523facbe84bac1fe820c0968c4, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
